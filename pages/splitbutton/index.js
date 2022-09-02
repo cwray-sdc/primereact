@@ -10,8 +10,9 @@ const SplitButtonDemo = () => {
     const toast = useRef(null);
     const items = [
         {
-            label: 'Update',
+            label: 'Updatse',
             icon: 'pi pi-refresh',
+            data: 'sdjkha',
             command: () => {
                 toast.current.show({ severity: 'success', summary: 'Updated', detail: 'Data Updated' });
             }
@@ -32,14 +33,12 @@ const SplitButtonDemo = () => {
         },
         {
             label: 'Upload',
+            data: {                
+                "data-qa": 'dsljhfh'
+            },
             template: (item, options) => {
                 return (
-                    <Link href="/fileupload">
-                        <a className={options.className} target={item.target}>
-                            <span className="p-menuitem-icon pi pi-upload"></span>
-                            <span className="p-menuitem-text">{item.label}</span>
-                        </a>
-                    </Link>
+                    <SplitButtonMenuItem item />
                 );
             }
         }
@@ -69,7 +68,7 @@ const SplitButtonDemo = () => {
 
                 <div className="card">
                     <h5>Basic</h5>
-                    <SplitButton label="Save" icon="pi pi-plus" onClick={save} model={items}></SplitButton>
+                    <SplitButton label="Save" icon="pi pi-plus" onClick={save} model={items} data-qa={`dd`}></SplitButton>
 
                     <h5>Severities</h5>
                     <SplitButton label="Primary" model={items} className="mr-2 mb-2"></SplitButton>
